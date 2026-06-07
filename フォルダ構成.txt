@@ -47,7 +47,7 @@
 │      loco.png
 │      mapo.png
 │      menchikatsu.png
-│      napolitan.png
+│      hamburger.png
 │      nikujaga.png
 │      nizakana.png
 │      ochazuke.png
@@ -141,7 +141,7 @@
         mizutaki.html
         monjayaki.html
         motsunabe.html
-        napolitan.html
+        hamburger.html
         nikujaga.html
         nizakana.html
         ochazuke.html

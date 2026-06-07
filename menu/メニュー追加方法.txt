@@ -1,0 +1,17 @@
+料理を置き換えるとき
+
+meals.js のデータ書き換え
+menu/xxx.html の中身の currentId を変更
+images/xxx.png を用意
+node generate-sw.js 実行
+node generate-sitemap.js 実行
+
+
+料理を新規追加するとき
+
+meals.js にデータ追加
+node generate.js 実行（HTMLファイル生成）
+images/xxx.png を用意
+node generate-sw.js 実行
+node generate-sitemap.js 実行
+

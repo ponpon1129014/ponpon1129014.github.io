@@ -679,11 +679,11 @@ const meals = [
     difficulty: 1, availability: 5,
     tags: ["野菜多め"] },
 
-  { id: "napolitan", name: "ナポリタン", emoji: "🍝",
-    type: "normal", category: ["noodle"], genre: "japanese",
-    image: "images/napolitan.png",
-    description: "懐かしいケチャップ味のスパゲティ。",
-    difficulty: 2, availability: 4,
+  { id: "hamburger", name: "ハンバーガー", emoji: "🍔",
+    type: "normal", category:  ["meat", "side"], genre: "western",
+    image: "images/hamburger.png",
+    description: "肉のパティに野菜とソースを挟んだ定番ハンバーガー。",
+    difficulty: 3, availability: 5,
     tags: ["ジャンク系"] },
 
 ];

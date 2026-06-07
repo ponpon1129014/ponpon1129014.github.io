@@ -1,4 +1,4 @@
-const CACHE_NAME = "gacha-v4.0.1";
+const CACHE_NAME = "gacha-v4.0.2";
 
 const urlsToCache = [
   "./",
@@ -205,7 +205,7 @@ const urlsToCache = [
   "./menu/bagel.html",
   "./menu/frenchfries.html",
   "./menu/salad.html",
-  "./menu/napolitan.html"
+  "./menu/hamburger.html"
 ];
 
 self.addEventListener("install", event => {
