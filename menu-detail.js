@@ -87,7 +87,8 @@ ogUrl.setAttribute("content", pageUrl);
           <button id="sameTypeBtn">同じジャンルで引き直す</button>
           <button id="changeTypeBtn">ジャンルを変えて引き直す</button>
         </div>
-        <div class="share-row">
+
+<div class="share-row">
             <div class="share-buttons">
               <a id="shareX" href="" target="_blank">𝕏</a>
               <a id="shareLine" href="" target="_blank">🟢 LINE</a>
@@ -95,9 +96,17 @@ ogUrl.setAttribute("content", pageUrl);
             </div>
             <span class="share-label">← シェア</span>
           </div>
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-1200404237991317"
+               data-ad-slot="8160901516"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
       </div>
     </div>
   `;
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
 
   // タグ
   const tagContainer = document.getElementById("tags");
