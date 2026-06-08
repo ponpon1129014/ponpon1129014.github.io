@@ -9,8 +9,8 @@ document.querySelector('meta[name="description"]')
   .setAttribute("content", meal.name + "の特徴やおすすめポイントを紹介します。" + meal.description);
 
 // OGP
-const pageUrl = "https://ponpon1129014.github.io/meal-app/menu/" + meal.id + ".html";
-const ogImage = "https://ponpon1129014.github.io/meal-app/" + meal.image;
+const pageUrl = "https://ponpon1129014.github.io/menu/" + meal.id + ".html";
+const ogImage = "https://ponpon1129014.github.io/" + meal.image;
 
 // og:titleがなければ作る
 let ogTitle = document.querySelector('meta[property="og:title"]');
@@ -158,7 +158,7 @@ meal.category.forEach(cat => {
     "https://delishkitchen.tv/search?q=" + encoded;
 
   // シェアリンク
-  const shareUrl = encodeURIComponent("https://ponpon1129014.github.io/meal-app/menu/" + meal.id + ".html");
+ const shareUrl = encodeURIComponent("https://ponpon1129014.github.io/menu/" + meal.id + ".html");
   const shareText = encodeURIComponent(meal.emoji + " 今日は「" + meal.name + "」にしました！ #ごはんガチャ");
   document.getElementById("shareX").href =
     "https://twitter.com/intent/tweet?text=" + shareText + "&url=" + shareUrl;

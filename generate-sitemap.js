@@ -3,7 +3,7 @@ const fs = require("fs");
 const mealsText = fs.readFileSync("meals.js", "utf8");
 const ids = [...mealsText.matchAll(/id:\s*"([^"]+)"/g)].map(m => m[1]);
 
-const base = "https://ponpon1129014.github.io/meal-app";
+const base = "https://ponpon1129014.github.io";
 
 const urls = [
   `${base}/`,
