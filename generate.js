@@ -14,6 +14,7 @@ const template = (id) => `<!DOCTYPE html>
   <meta name="description" content="">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../menu.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1200404237991317" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container"></div>
