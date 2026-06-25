@@ -261,7 +261,61 @@ button:hover:not(:disabled) {
     transform: scale(1);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
+
+/* ── アバウトセクション ── */
+.about-section {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  color: #3d1600;
 }
+
+.about-section h2 {
+  font-size: 18px;
+  color: #5c2400;
+  margin: 24px 0 10px;
+}
+
+.about-section h2:first-child {
+  margin-top: 0;
+}
+
+.about-section p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 8px;
+}
+
+.how-to-list {
+  padding-left: 20px;
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 2;
+  color: #3d1600;
+}
+
+.faq-list {
+  margin: 0;
+}
+
+.faq-list dt {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 12px;
+  color: #5c2400;
+}
+
+.faq-list dd {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #3d1600;
+}
+
 
 
 
@@ -329,6 +383,10 @@ button:hover:not(:disabled) {
   #selectedLabel {
     margin-top: 4px;
 }
+
+  .about-section {
+    padding: 16px;
+  }
 
 }
 /* ── フィルターセクション ── */
@@ -465,3 +523,5 @@ button:hover:not(:disabled) {
 .badge-x:hover {
   opacity: 1;
 }
+
+
