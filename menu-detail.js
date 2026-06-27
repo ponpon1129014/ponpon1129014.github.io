@@ -78,6 +78,19 @@ ogUrl.setAttribute("content", pageUrl);
           </div>
         </div>
       </div>
+
+      ${meal.howto ? `
+<div class="meal-extra">
+  <h2>基本の作り方</h2>
+  <ol class="howto-list">
+    ` + meal.howto.map(step => "<li>" + step + "</li>").join("") + `
+  </ol>
+  <h2>アレンジ・食べ方</h2>
+  <p class="arrange-text">${meal.arrange}</p>
+<h2>合わせたい付け合わせ</h2>
+  <p class="side-text">` + meal.side.join("・") + `</p>
+</div>` : ""}
+
       <div class="menu-bottom">
         <div class="same-type-list">
           <h2>同じジャンルのメニュー</h2>
