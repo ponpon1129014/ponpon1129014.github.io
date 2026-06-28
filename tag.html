@@ -10,47 +10,58 @@
 </head>
 <body>
   <div class="container">
-    <div class="tag-page">
-      <h1 id="tagTitle"></h1>
-      <p id="tagDesc"></p>
-      <ul id="tagMealList"></ul>
-      <a href="index.html" class="back-btn">← トップに戻る</a>
-    </div>
+<div class="tag-page">
+  <h1 id="tagTitle"></h1>
+  <p id="tagDesc"></p>
+  <p id="tagTrivia"></p>
+  <ul id="tagMealList"></ul>
+  <a href="index.html" class="back-btn">← トップに戻る</a>
+</div>
   </div>
 
   <script src="meals.js"></script>
   <script>
-    const tagDescs = {
-      "辛い":     "ピリッと刺激的な辛さが食欲をかき立てる一品",
-      "揚げ物":   "サクサク食感がたまらない満足度抜群のメニュー",
-      "野菜多め": "野菜をたっぷり楽しめるヘルシーな料理",
-      "ごちそう系": "特別な日や贅沢したい日に選びたい一皿",
-      "ジャンク系": "背徳感までおいしい、やみつきになる味わい",
-      "おつまみ系": "お酒のお供にもぴったりな気軽につまめる料理"
-    };
+const tagDescs = {
+  "辛い":       "ピリッと刺激的な辛さが食欲をかき立てる一品。唐辛子や豆板醤、コチュジャンなど辛みの種類によって味わいが大きく変わります。辛いものが好きな方にはたまらないメニューが揃っています。",
+  "揚げ物":     "サクサク食感がたまらない満足度抜群のメニュー。外はカリッと、中はジューシーに仕上げる揚げ物は、老若男女問わず人気の調理法です。揚げたてはもちろん、お弁当のおかずとしても大活躍します。",
+  "野菜多め":   "野菜をたっぷり楽しめるヘルシーな料理。栄養バランスを整えたいときや、さっぱり食べたいときにぴったりのメニューが揃っています。野菜の旨みや食感を活かした調理法にも注目です。",
+  "ごちそう系": "特別な日や贅沢したい日に選びたい一皿。素材にこだわったり、手間をかけたりすることで生まれる特別感が魅力です。大切な人と囲む食卓をより豊かにしてくれるメニューが揃っています。",
+  "ジャンク系": "背徳感までおいしい、やみつきになる味わい。濃い味付けやボリューム感が魅力で、疲れた日や気分転換したいときに食べたくなるメニューです。たまの贅沢として楽しみたい一品が揃っています。",
+  "おつまみ系": "お酒のお供にもぴったりな気軽につまめる料理。ビールや日本酒との相性が良く、少量でも満足感が高いメニューが揃っています。友人や家族と囲んで楽しむ食卓にもおすすめです。"
+};
 
-    const params = new URLSearchParams(window.location.search);
-    const tagName = params.get("name");
+const tagTrivia = {
+  "辛い":       "唐辛子は南米原産で、15世紀末にコロンブスがヨーロッパへ持ち帰り、その後アジア全域に広まりました。辛み成分の「カプサイシン」には代謝を上げる効果があるとされ、健康食材としても注目されています。韓国料理のコチュジャンや四川料理の豆板醤など、各国で独自の辛み調味料が発展してきました。辛さへの耐性は食べ続けることで高まるため、辛い料理好きはどんどん辛さを求めるようになると言われています。",
+  "揚げ物":     "揚げ物の歴史は古く、古代ローマ時代にはすでに油で食材を揚げる調理法が存在していたとされています。日本の天ぷらはポルトガルから伝わった調理法が起源とされており、江戸時代に屋台料理として庶民に広まりました。揚げ物をカラッと仕上げるコツは油の温度管理で、食材によって最適な温度が異なります。二度揚げすることで外側がより香ばしくカリッと仕上がるのは、プロの料理人がよく使うテクニックです。",
+  "野菜多め":   "厚生労働省は1日に350g以上の野菜を摂ることを推奨していますが、現代の日本人の平均摂取量は目標に届いていないと言われています。野菜は加熱することでかさが減り、生で食べるよりも多くの量を摂取できるため、炒め物や鍋料理は効率的に野菜を摂る方法のひとつです。旬の野菜は栄養価が高く、価格も比較的安くなるため、積極的に取り入れたい食材です。色とりどりの野菜を組み合わせると、見た目にも美しく栄養バランスも整いやすくなります。",
+  "ごちそう系": "「ごちそう」という言葉は、漢字で「御馳走」と書き、食材を集めるために馬を走らせて奔走する様子が語源とされています。特別な料理を囲む食卓は、家族や友人との絆を深める大切な時間でもあります。フランス料理のフルコースや日本の懐石料理など、世界各国に「ごちそう」文化は存在します。手間や時間をかけて作られた料理は、それだけで食べる人への敬意や愛情を伝える力を持っています。",
+  "ジャンク系": "「ジャンクフード」という言葉は1970年代にアメリカで生まれ、カロリーが高く栄養バランスに偏りがある食品を指す言葉として広まりました。ただし近年は「たまに食べる背徳感のある食事」として、ストレス解消や気分転換の効果も注目されています。濃い味付けや油分が多い食事は脳内の報酬系を刺激するため、やみつきになりやすいという研究結果もあります。大切なのはバランスで、普段の食事を整えた上で楽しむ「ご褒美メシ」として取り入れるのがおすすめです。",
+  "おつまみ系": "日本のお酒の文化は古く、奈良時代には宮廷で酒宴が開かれ、料理とお酒を楽しむ文化が根付いていました。居酒屋文化は江戸時代に発展し、庶民が気軽にお酒と料理を楽しめる場として親しまれてきました。おつまみは「酒の肴（さかな）」とも呼ばれ、お酒の味を引き立てる役割を担っています。近年はノンアルコール飲料の普及とともに、お酒を飲まない人もおつまみ料理を楽しむスタイルが広まっています。"
+};
 
-    if (tagName) {
-      const filtered = meals.filter(m => m.tags.includes(tagName));
+const params = new URLSearchParams(window.location.search);
+const tagName = params.get("name");
 
-      document.title = tagName + " | 今日なに食べよーかな";
-      document.querySelector('meta[name="description"]')
-        .setAttribute("content", tagName + "に該当するメニューの一覧です。");
-      document.getElementById("tagTitle").textContent = "🏷️ " + tagName + "（" + filtered.length + "品）";
-      document.getElementById("tagDesc").textContent = tagDescs[tagName] || "";
+if (tagName) {
+  const filtered = meals.filter(m => m.tags.includes(tagName));
 
-      const list = document.getElementById("tagMealList");
-      filtered.forEach(m => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = "menu/" + m.id + ".html";
-        a.textContent = m.emoji + " " + m.name;
-        li.appendChild(a);
-        list.appendChild(li);
-      });
-    }
+  document.title = tagName + " | 今日なに食べよーかな";
+  document.querySelector('meta[name="description"]')
+    .setAttribute("content", tagName + "に該当するメニューの一覧です。");
+  document.getElementById("tagTitle").textContent = "🏷️ " + tagName + "（" + filtered.length + "品）";
+  document.getElementById("tagDesc").textContent = tagDescs[tagName] || "";
+  document.getElementById("tagTrivia").textContent = tagTrivia[tagName] || "";
+
+  const list = document.getElementById("tagMealList");
+  filtered.forEach(m => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "menu/" + m.id + ".html";
+    a.textContent = m.emoji + " " + m.name;
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+}    
   </script>
 </body>
 </html>

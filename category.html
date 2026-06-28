@@ -10,59 +10,71 @@
 </head>
 <body>
   <div class="container">
-    <div class="tag-page">
-      <h1 id="catTitle"></h1>
-      <p id="catDesc"></p>
-      <ul id="catMealList"></ul>
-      <a href="index.html" class="back-btn">← トップに戻る</a>
-    </div>
+<div class="tag-page">
+  <h1 id="catTitle"></h1>
+  <p id="catDesc"></p>
+  <p id="catTrivia"></p>
+  <ul id="catMealList"></ul>
+  <a href="index.html" class="back-btn">← トップに戻る</a>
+</div>
   </div>
 
   <script src="meals.js"></script>
   <script>
-    const catLabels = {
-      rice:   "ご飯もの",
-      noodle: "麺類",
-      meat:   "肉料理",
-      fish:   "魚料理",
-      flour:  "粉もの・チーズ系",
-      nabe:   "鍋・汁物",
-      side:   "軽食・サイド"
-    };
+const catLabels = {
+  rice:   "ご飯もの",
+  noodle: "麺類",
+  meat:   "肉料理",
+  fish:   "魚料理",
+  flour:  "粉もの・チーズ系",
+  nabe:   "鍋・汁物",
+  side:   "軽食・サイド"
+};
 
-    const catDescs = {
-      rice:   "お腹も心も満たす、ご飯が主役の一品",
-      noodle: "つるっと食べたい日に。ラーメン・うどん・パスタなど",
-      meat:   "ガッツリ食べたいときの定番メニュー",
-      fish:   "魚介の旨みを楽しめる和洋中の一皿",
-      flour:  "香ばしさと濃厚さが魅力の人気メニュー",
-      nabe:   "体も温まるほっとする料理たち",
-      side:   "もう一品にも、小腹満たしにもぴったり"
-    };
+const catDescs = {
+  rice:   "お腹も心も満たす、ご飯が主役の一品。丼・炒飯・カレーライスなど、バリエーション豊富なメニューが揃っています。毎日食べても飽きない、日本の食卓の主役です。",
+  noodle: "つるっと食べたい日に。ラーメン・うどん・パスタなど、スープや具材との組み合わせで無限のアレンジが楽しめます。さっぱりからこってりまで、気分に合わせて選べます。",
+  meat:   "ガッツリ食べたいときの定番メニュー。焼く・煮る・揚げるなど調理法もさまざまで、スタミナをつけたい日にぴったりです。家族みんなが喜ぶ満足感の高いメニューが揃っています。",
+  fish:   "魚介の旨みを楽しめる和洋中の一皿。焼き魚・煮魚・刺身など、シンプルな調理で素材の美味しさが際立ちます。栄養バランスも良く、健康的な食卓づくりにも役立ちます。",
+  flour:  "香ばしさと濃厚さが魅力の人気メニュー。お好み焼き・ピザ・グラタンなど、粉やチーズを使ったボリューム満点の料理が集まっています。みんなで囲んで食べるのが楽しいメニューも多いです。",
+  nabe:   "体も温まるほっとする料理たち。寄せ鍋・キムチ鍋・おでんなど、具材の旨みがスープに溶け込んだ滋味深い一品が揃っています。締めのご飯や麺まで楽しめるのも鍋料理の醍醐味です。",
+  side:   "もう一品にも、小腹満たしにもぴったり。サンドイッチ・サラダ・だし巻き卵など、軽めに食べたい日や食事の脇役として大活躍するメニューが揃っています。朝食やランチにもおすすめです。"
+};
 
-    const params = new URLSearchParams(window.location.search);
-    const catName = params.get("name");
+const catTrivia = {
+  rice:   "日本人とご飯の歴史は縄文時代にまでさかのぼると言われています。「ご飯」という言葉が食事全般を指すほど、米は日本人の食生活に深く根付いた存在です。丼文化は江戸時代に屋台料理として発展し、手軽に食べられるスタイルが庶民に広まりました。現代では世界各国の料理をご飯に合わせたアレンジ丼も増え、バリエーションはますます広がっています。",
+  noodle: "日本の麺文化は多様で、うどんは奈良時代に中国から伝わったとされ、そばは江戸時代に庶民の食として広まりました。ラーメンは明治時代以降に中国から伝わり、各地域で独自のスープスタイルへと進化した日本独自の料理です。パスタはイタリア料理ですが、日本では和風やたらこなど独自のアレンジが多数生まれています。麺の太さや形によって合うソースや出汁が変わるため、奥が深い料理ジャンルです。",
+  meat:   "肉料理は世界中で愛されていますが、日本では明治時代に西洋文化が入るまで、長らく肉食が制限されていた歴史があります。とんかつやハンバーグは西洋料理を日本流にアレンジした「洋食」として明治〜大正時代に生まれた料理です。焼肉は在日コリアンの食文化が起源とされており、戦後に日本全国へ広まりました。唐揚げはいまや日本人が最も好む料理のひとつとして、さまざまなランキングで上位に入り続けています。",
+  fish:   "日本は四方を海に囲まれた島国であり、古くから魚介類を中心とした食文化が発達してきました。江戸時代の江戸（現在の東京）では、東京湾で獲れた新鮮な魚介を使った握り寿司が屋台で提供され、庶民に親しまれていました。魚の「旬」を意識して食べる文化は日本独自のもので、旬の魚は栄養価が高く、味も格段に美味しくなります。近年は魚離れが進む一方で、健康意識の高まりとともに魚料理が見直されています。",
+  flour:  "粉を使った料理は世界中に存在しますが、日本では特に「粉もん文化」が関西を中心に根付いています。お好み焼きやたこ焼きは大阪・広島のソウルフードとして全国に広まり、今では日本を代表するB級グルメとして海外でも人気です。ピザはイタリア・ナポリ発祥ですが、日本では照り焼きチキンや明太子など独自のトッピングが生まれました。グラタンやドリアは実は日本発祥の洋食で、横浜のホテルが発祥の地とされています。",
+  nabe:   "鍋料理は古くから日本の食卓に欠かせない存在で、平安時代にはすでに鍋を囲む文化があったとされています。「すき焼き」は明治時代の文明開化とともに牛肉食が解禁されたことで生まれた料理で、当初は農具の「鋤（すき）」の上で肉を焼いたことが名前の由来という説があります。おでんは江戸時代の屋台料理が起源で、もともとは味噌田楽と呼ばれていました。鍋料理の魅力のひとつは「締め」で、煮込んだ出汁でいただく雑炊や麺は格別の美味しさです。",
+  side:   "軽食文化は近代化とともに発展し、サンドイッチは18世紀イギリスのサンドイッチ伯爵が発案したとされる世界的に有名な料理です。日本のコンビニエンスストアは軽食文化を大きく変え、おにぎり・サンドイッチ・サラダなどを手軽に購入できる環境を整えました。「もう一品」として食卓に添えられる副菜は、栄養バランスを整える重要な役割を担っています。忙しい朝や小腹が空いたときにも、軽食があれば食事のリズムを崩さずに済みます。"
+};
 
-    if (catName) {
-      const label = catLabels[catName] || catName;
-      const filtered = meals.filter(m => m.category.includes(catName));
+const params = new URLSearchParams(window.location.search);
+const catName = params.get("name");
 
-      document.title = label + " | 今日なに食べよーかな";
-      document.querySelector('meta[name="description"]')
-        .setAttribute("content", label + "に該当するメニューの一覧です。");
-      document.getElementById("catTitle").textContent = "🍽️ " + label + "（" + filtered.length + "品）";
-      document.getElementById("catDesc").textContent = catDescs[catName] || "";
+if (catName) {
+  const label = catLabels[catName] || catName;
+  const filtered = meals.filter(m => m.category.includes(catName));
 
-      const list = document.getElementById("catMealList");
-      filtered.forEach(m => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = "menu/" + m.id + ".html";
-        a.textContent = m.emoji + " " + m.name;
-        li.appendChild(a);
-        list.appendChild(li);
-      });
-    }
+  document.title = label + " | 今日なに食べよーかな";
+  document.querySelector('meta[name="description"]')
+    .setAttribute("content", label + "に該当するメニューの一覧です。");
+  document.getElementById("catTitle").textContent = "🍽️ " + label + "（" + filtered.length + "品）";
+  document.getElementById("catDesc").textContent = catDescs[catName] || "";
+  document.getElementById("catTrivia").textContent = catTrivia[catName] || "";
+
+  const list = document.getElementById("catMealList");
+  filtered.forEach(m => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "menu/" + m.id + ".html";
+    a.textContent = m.emoji + " " + m.name;
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+}
   </script>
 </body>
 </html>

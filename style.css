@@ -316,6 +316,79 @@ button:hover:not(:disabled) {
   color: #3d1600;
 }
 
+/* 折りたたみセクション */
+.info-block {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+   text-align: left;
+}
+
+.info-block summary {
+  font-size: 15px;
+  font-weight: bold;
+  color: #3d1600;
+  padding: 10px 4px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-block summary::after {
+  content: "▾";
+  font-size: 12px;
+  color: #aaa;
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.info-block[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.info-block p,
+.info-block ol,
+.info-block dl {
+  font-size: 14px;
+  color: #3d1600;
+  padding: 0 4px 10px;
+  margin: 0;
+}
+
+.how-to-list {
+  padding-left: 20px;
+  line-height: 2;
+}
+
+.faq-list dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.faq-list dd {
+  margin: 4px 0 0 0;
+  padding-left: 12px;
+}
+
+.about-operator {
+  margin-top: 12px !important;
+  color: #666 !important;
+  font-size: 13px !important;
+}
+
+
+
+
+
+
 
 
 
