@@ -5,11 +5,14 @@ const ids = [...mealsText.matchAll(/id:\s*"([^"]+)"/g)].map(m => m[1]);
 
 const base = "https://ponpon1129014.github.io";
 
+const categories = ["rice", "noodle", "meat", "fish", "flour", "nabe", "side"];
+const tags = ["辛い", "揚げ物", "野菜多め", "ごちそう系", "ジャンク系", "おつまみ系"];
+
 const urls = [
   `${base}/`,
   `${base}/privacy.html`,
-  `${base}/tag.html`,
-  `${base}/category.html`,
+  ...categories.map(c => `${base}/category.html?name=${c}`),
+  ...tags.map(t => `${base}/tag.html?name=${encodeURIComponent(t)}`),
   ...ids.map(id => `${base}/menu/${id}.html`)
 ];
 
